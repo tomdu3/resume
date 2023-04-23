@@ -21,8 +21,6 @@
     background-color: #525252;
 }
 
-
-
 /* ----------------------------- Heading  */
 
 header {
@@ -69,6 +67,10 @@ header {
 .menucontainer {
     font-size: 0;
 }
+/* fixes space at the bottom of the menu */
+#nav {
+    margin: 0;
+}
 /* solves problem of the above font sizing */
 #nav li {
     font-size: 14px;
@@ -105,4 +107,11 @@ header {
     font-size: 14px;
     font-weight: 300;
     letter-spacing: 2px;
+}
+
+/* ----------------------------- Hover.css */
+
+.hvr-sweep-to-bottom:before {
+    background:rgba(0, 0, 0, 0.2);
+    height: 120px;
 }
