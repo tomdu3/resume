@@ -197,10 +197,18 @@
 
     </footer>
 <script>
-
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: {
+                lat: 46.619261,
+                lng: -33.134766
+            }
+        });
+    }
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF5CY6lZy2-_vA3ZMd3Fs5eo6Xynx6lc0&callback=initMap&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuV6AhiuZZw6MpqL9FY91-8dWfHUWUxMg&callback=initMap&v=weekly" defer></script>
 </body>
 
 </html>
