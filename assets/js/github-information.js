@@ -60,9 +60,17 @@ function fetchGitHubInformation(event) {
             var repoData = secondResponse[0];
             $("#gh-user-data").html(userInformationHTML(userData));
             $("#gh-repo-data").html(repoInformationHTML(repoData));
-        }, function(errorResponse) {
-            if(erroResponse === 404) {
-                $('#gh-user-data').html(
+        },
+        function(errorResponse) {
+            if (errorResponse.status === 404) {
+                $("#gh-user-data").html(
+                    `<h2>No info found for user ${username}</h2>`);
+            } else if (errorResponse.status === 403) {
+                var resetTime = new Date(errorResponse.getResponseHeader('X-RateLimit-Reset') * 1000);
+                $("#gh-user-data").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
+            } else {
+                console.log(errorResponse);
+                $("#gh-user-data").html(
                     `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);
             }
         });
